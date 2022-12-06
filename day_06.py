@@ -1,7 +1,4 @@
-from itertools import islice
-
-def find_start(signal):
-    window_size = 14
+def find_start(signal, window_size):
     for i in range(len(signal) - window_size + 1):
         chunk = signal[i: i + window_size]
         if len(chunk) == len(set(chunk)):
@@ -11,4 +8,4 @@ def find_start(signal):
     
 with open('input_day06.txt') as f:  
     [signal] = [l.strip('\n') for l in f.readlines()]
-    find_start(signal)
+    find_start(signal, 14)
